@@ -1,10 +1,25 @@
 "use client"; // this is a client-side file, need this for the fetch api to work
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createClient } from '@/utils/supabase/client';
 
 export default function Home() {
 
+    const supabase = createClient();
+    const [session, setSession] = useState();
     const [media, setMedia] = useState(null); // null is safer than an empty string
     const API_URL = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=5'
+
+    useEffect(() => {
+        supabase.auth.getSession().then(({data:{session}}) => {
+            setSession(session);
+        });
+
+        const {data: {subscription}} = supabase.auth.onAuthStateChange((_event, session) => {
+            setSession(session);
+        })
+
+        return () => subscription.unsubscribe;
+    }, [])
 
     async function fetchMedia() {
         const response = await fetch(API_URL); 
@@ -30,6 +45,13 @@ export default function Home() {
                     </li>
                 )
             })
+        if (session === null) {
+            return <div>Log in...</div>
+        }
+
+        if (session === undefined) {
+            return <div>Loading...</div>
+        }
 
             return (
                 <div className="p-4 mb-4 border-4 border-black text-center">
