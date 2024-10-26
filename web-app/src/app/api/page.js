@@ -1,6 +1,13 @@
 "use client"; // this is a client-side file, need this for the fetch api to work
 import { useState, useEffect } from 'react';
+import {Cherry_Swash} from "next/font/google"; 
 import { createClient } from '@/utils/supabase/client';
+
+const font= Cherry_Swash({
+    weight:"700",
+    style: "normal",
+    subsets: ["latin"]
+});
 
 export default function Home() {
 
