@@ -8,9 +8,9 @@ export default function Home() {
 
     async function fetchMedia() {
         const response = await fetch(API_URL); 
-        // console.log(response); // response is a promise, would be a object(?)
+        console.log(response); // response is a promise, would be a object(?)
         const data  = await response.json(); // make response into a json object
-        // console.log(data);
+        console.log(data);
         setMedia(data); 
     }
     // await is a keyword that can only be used inside an async function
