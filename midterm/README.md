@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MDIA-3126
 
-## Getting Started
+## 3 things I want to try during this course
+- Image recognition AI 
+- CSS animation
+- Passing users' input from frontend to backend
 
-First, run the development server:
+## 2 things I learned today
+- Tabs
+- Useful shortcuts for coding
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How I'm feeling today
+- Tired
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+npx create-next-app@latest
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {...}
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {...}
 
-## Learn More
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {...}
 
-To learn more about Next.js, take a look at the following resources:
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {...}
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {...}
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Atoms
+- Button: The "Fetch 📸" button can be an atom because it is a simple component that could be reused.
+- Text: Basic text elements (e.g., titles, descriptions) could be individual atoms if you anticipate reusing them elsewhere in the app.
 
-## Deploy on Vercel
+1. Molecules
+- Header: A molecule that consists of a title and a button. This component allows you to fetch images.
+- ImageCard: A molecule that displays an individual anime image, title, duration, and synopsis. This combines image and text atoms.
+1. Organisms
+- ImageListContainer: This component contains multiple ImageCard molecules and manages the display logic based on loading, error, and imageData states. It also displays loading and error messages.
+1. Templates
+- Home Template: A template that organizes the Header and ImageListContainer organisms. This will be used in the main Home page.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+sm	640px	@media (min-width: 640px) { ... }
+md	768px	@media (min-width: 768px) { ... }
+lg	1024px	@media (min-width: 1024px) { ... }
+xl	1280px	@media (min-width: 1280px) { ... }
+2xl	1536px	@media (min-width: 1536px) { ... }
