@@ -57,12 +57,12 @@ export default function Home() {
 
     if (imageData && Array.isArray(imageData)) {
       return (
-        <section className="flex flex-col items-center bg-teal-100 gap-10 p-4">
+        <section className="section flex flex-col items-center desktop:bg-teal-100 gap-10 p-4 mobile: bg-red-100">
           {imageData.map((image) => (
             <article key={image.mal_id} className="flex justify-items-center items-center gap-3">
               <img src={image.images.jpg.image_url} alt={image.title} width="200" />
               <div className="flex flex-col">
-                <p>Title: {image.title}</p>
+                <p className="desktop:text-sm mobile:text-xl">Title: {image.title}</p>
                 <p>Duration: {image.duration}</p>
                 <p>{image.synopsis}</p>
               </div>
