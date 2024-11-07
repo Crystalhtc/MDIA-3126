@@ -30,13 +30,15 @@ export default function Home() {
       return;
     }
     
-    const API_URL = "https://picsum.photos/v2/list?limit=5"
+    const randomPage = Math.floor(Math.random() * 50) + 1;
+    const API_URL = `https://api.jikan.moe/v4/anime?page=${randomPage}&limit=5`;
     setLoading(true);
     const response = await fetch(API_URL);
     const data = await response.json();
+    console.log(data);
     // const debuggerVar = "test var";
     // const moreDebuggerVar = "another test var";
-    setImageData(data);
+    setImageData(data.data);
     setLoading(false);
 
   }
@@ -79,16 +81,21 @@ export default function Home() {
         // "https://unsplash.com/photos/yC-Yzbqy7PY"
         // width: 
         // 5000`
+
           imageListItems.push(
-            <article key={image.id}>
-              <img src={image.download_url} width="500"/>
-              <p>Author: {image.author}</p>
-              <a href={image.download_url}>View this image on unsplash! This API has bad documentation</a>
+            <article key={image.title} className="flex justify-items-center items-center gap-3">
+              <img src={image.images.jpg.image_url} width="200"/>
+              <div className="flex flex-col">
+                <p>Author: {image.title}</p>
+                <p>Duration: {image.duration}</p>
+                <p>{image.synopsis}</p>
+              </div>
+              
               <hr/>
             </article>
           )
       });
-      return <section className="flex flex-col  bg-teal-100" >{imageListItems}</section>;
+      return <section className="flex flex-col items-center bg-teal-100 gap-10" >{imageListItems}</section>;
     }
 
     return (
