@@ -1,0 +1,54 @@
+.cssSection {
+    position: relative;
+    height: 60vh;
+}
+
+.butterfly,
+.planet,
+.tada {
+    position: absolute;
+    font-size: 75px;
+    animation: rotate 3s ease infinite;
+    /* animation name, 
+    animation duration, 
+    animation timing functions, 
+    animation-iteration-count,
+    animation-fill-mode --> do you want the stuff to return to original state
+     */
+}
+
+.butterfly {
+    top: 25%;
+    left: 25%;
+}
+
+.planet {
+    top: 40%;
+    left: 50%;
+    /* animation-delay: 1s; */
+}
+
+.tada {
+    top: 35%;
+    left: 75%;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+/* can create keyframes wherever you want, 
+it just needs to be below the animation name!!*/
+
+/* 80%,
+100% {
+    transform: rotate(360deg);
+} 
+--> there willl be a pause before the animation starts again
+*/
